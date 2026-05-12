@@ -1,112 +1,747 @@
-# 🌸 Plan de Implementación Maestro: "Divine Beauty"
+# 🌸 PLAN MAESTRO PROFESIONAL — DIVINE BEAUTY
 
-**Arquitectura:** Flutter Multiplataforma + Firebase Fireconsole
+## Arquitectura Flutter + Firebase + Firestore
 
-**Estética:** Boutique Minimal (Palette: #FFB6C1, #FFF0F5, #FFFFFF)
-
----
-
-## I. FASE DE PREPARACIÓN Y SETUP ROSA
-
-En esta etapa configuramos el "lienzo" donde trabajaremos.
-
-### 1.1. Herramientas y Dependencias Core
-
-Configuraremos el archivo `pubspec.yaml` con las versiones más estables para evitar conflictos de nulidad:
-
-* **Core:** `firebase_core`, `cloud_firestore`, `firebase_auth`.
-* **State Management:** `provider` (Gestión reactiva).
-* **UI/Design:** `google_fonts` (Para fuentes elegantes como *Montserrat* o *Playfair*).
-* **Utilities:** `font_awesome_flutter` (Iconografía premium).
-
-### 1.2. Design System: Divine Pink & White
-
-Definiremos un `ThemeData` global en `lib/config/theme.dart`:
-
-* **PrimaryColor:** `#FFB6C1` (Rosa Pastel).
-* **ScaffoldBackgroundColor:** `#FFFFFF` (Blanco Puro).
-* **AccentColor:** `#F8BBD0` (Rosa suave para estados de selección).
-* **CardTheme:** Bordes redondeados de 20px y sombras suaves (blur 10).
+### Versión Empresarial Escalable (Sin Provider • Sin Analytics • Ambiente Standard)
 
 ---
 
-## II. FASE DE MODELADO: LAS 16 ENTIDADES DART
+# I. VISIÓN ESTRATÉGICA DEL PROYECTO
 
-Convertiremos cada tabla del esquema en clases robustas con soporte para JSON.
+## Objetivo General
 
-| Grupo | Entidades (Modelos Dart) | Función en Divine Beauty |
-| --- | --- | --- |
-| **Catálogo** | `Marca`, `Categoria`, `Producto`, `Variante` | Define el stock, tonos (hex) y marcas de lujo. |
-| **Ventas** | `Pedido`, `DetallePedido`, `Cupon` | Lógica de cálculo de precios y descuentos. |
-| **Usuarios** | `Cliente`, `Direccion`, `Resena` | Perfil del usuario, geolocalización y feedback. |
-| **Transacción** | `Pago`, `Factura` | Registro de métodos (PayPal/Tarjeta/Oxxo) y RFC. |
-| **Logística** | `Envio`, `Proveedor`, `OrdenCompra`, `DetalleOrden` | Control de guías, paquetería y resurtido. |
+Desarrollar una aplicación multiplataforma premium de cosméticos y belleza llamada **Divine Beauty**, enfocada en:
 
----
-
-## III. FASE DE INFRAESTRUCTURA (FIRECONSOLE)
-
-Configuración de la base de datos `BDtiendamaquillaje` sin analytics inicial para máxima velocidad de respuesta.
-
-* **Colección `productos`:** Estructura anidada para optimizar lecturas.
-* **Seguridad:** Reglas de escritura solo para usuarios autenticados.
-* **Auth:** Configuración de Google Sign-In con el branding de la app (Logo rosa sobre blanco).
+* Experiencia visual boutique minimalista.
+* Alto rendimiento.
+* Arquitectura limpia y mantenible.
+* Integración segura con Firebase.
+* Escalabilidad empresarial.
+* Optimización de costos en infraestructura.
 
 ---
 
-## IV. FASE DE UI/UX: NAVEGACIÓN Y PANTALLAS
+# II. DECISIONES TÉCNICAS IMPORTANTES
 
-Diseñaremos 5 pantallas clave con flujo fluido y transiciones suaves.
+## 🌸 Firebase en Modo STANDARD
 
-1. **Login Screen:** * Fondo blanco con degradados rosa en los bordes.
-* Botones redondeados con el texto "Entrar al mundo de la belleza".
+La infraestructura utilizará:
 
+### Firebase Standard Environment
 
-2. **Home Screen (Inicio):** * **Banners dinámicos:** Promociones de marcas destacadas.
-* **Categorías en burbujas:** Iconos minimalistas en rosa.
+NO se utilizará:
 
-
-3. **Novedades Screen:** * Grid de productos con "Quick Add" (Botón flotante rosa).
-* Lógica de **Favoritos** guardada en el perfil del cliente.
-
-
-4. **Carrito Screen:** * Resumen de compra estilo "Recibo boutique".
-* Input elegante para el código de **CUPON**.
-
-
-5. **Yo Screen (Perfil):** * Avatar circular con borde rosa.
-* Acceso rápido a **Historial de Pedidos** y **Direcciones**.
-
-
+* Producción avanzada inicial.
+* Analytics.
+* Tracking de comportamiento.
+* Servicios innecesarios que aumenten costos.
 
 ---
 
-## V. FASE DE LÓGICA DE PAGO (CHECKOUT MULTIPLATAFORMA)
+## 🌸 Servicios Firebase Permitidos
 
-Captura de datos crítica para la integridad del negocio:
-
-* **PayPal:** Implementación de redirección segura para captura del ID de transacción.
-* **Tarjeta:** Formulario con validación visual inmediata y máscara de seguridad.
-* **Oxxo:** Generación de vista de "Ficha de Pago" con `num_guia` temporal hasta la validación del depósito.
+| Servicio           | Uso                    |
+| ------------------ | ---------------------- |
+| Authentication     | Login                  |
+| Firestore Database | Base de datos          |
+| Firebase Storage   | Imágenes               |
+| Firebase Hosting   | Web futura             |
+| Cloud Messaging    | Notificaciones futuras |
 
 ---
 
-## VI. ESTRUCTURA DE CARPETAS (JERARQUÍA PROFESIONAL)
+## 🌸 Servicios NO Utilizados
 
-Así se verá tu proyecto en VS Code:
+| Servicio               | Motivo                    |
+| ---------------------- | ------------------------- |
+| Firebase Analytics     | No necesario inicialmente |
+| Crashlytics            | Se integrará después      |
+| Remote Config          | No prioritario            |
+| Performance Monitoring | Fase futura               |
 
-```text
-lib/
-├── config/             # firebase_options y theme_rosa.dart
-├── models/             # 16 Archivos (marca.dart, producto.dart, etc.)
-├── services/           # auth_service y firestore_service
-├── providers/          # cart_provider, user_provider, catalog_provider
-├── widgets/            # custom_button.dart (Pink style), product_card.dart
-└── screens/            # Las 5 pantallas principales + Checkout
+---
 
+# III. ARQUITECTURA GENERAL DEL SISTEMA
+
+La arquitectura estará basada en separación modular profesional.
+
+---
+
+# 🌸 ESTRUCTURA EN CAPAS
+
+```text id="wv5y8i"
+UI (Screens & Widgets)
+        ↓
+Controllers
+        ↓
+Services
+        ↓
+Firebase
 ```
 
 ---
+
+# IV. ESTRATEGIA DE MANEJO DE ESTADO
+
+## 🚫 NO SE UTILIZARÁ PROVIDER
+
+Provider queda descartado para evitar:
+
+* Dependencias innecesarias.
+* Rebuilds excesivos.
+* Escalabilidad limitada.
+* Complejidad futura.
+
+---
+
+# 🌸 SOLUCIÓN RECOMENDADA
+
+## Uso de Controllers + ValueNotifier
+
+La app utilizará:
+
+| Tecnología     | Función                   |
+| -------------- | ------------------------- |
+| ValueNotifier  | Estado reactivo ligero    |
+| ChangeNotifier | Estados globales pequeños |
+| Controllers    | Lógica desacoplada        |
+| Services       | Comunicación backend      |
+
+---
+
+# 🌸 BENEFICIOS
+
+✅ Más ligero
+✅ Mejor rendimiento
+✅ Menor complejidad
+✅ Fácil mantenimiento
+✅ Escalable
+✅ Ideal para ecommerce Flutter
+
+---
+
+# V. FASE 1 — PREPARACIÓN DEL PROYECTO
+
+## Objetivo
+
+Construir una base sólida y organizada antes de escribir lógica compleja.
+
+---
+
+# 🌸 CONFIGURACIÓN INICIAL
+
+Durante esta etapa se realizará:
+
+* Inicialización Flutter multiplataforma.
+* Configuración Firebase Standard.
+* Integración Firestore.
+* Configuración Storage.
+* Configuración Authentication.
+* Configuración tema global.
+* Estructura de carpetas profesional.
+
+---
+
+# VI. FASE 2 — DESIGN SYSTEM “DIVINE BEAUTY”
+
+## Objetivo
+
+Crear identidad visual uniforme en toda la aplicación.
+
+---
+
+# 🌸 PALETA OFICIAL
+
+| Elemento         | Color   |
+| ---------------- | ------- |
+| Rosa Principal   | #FFB6C1 |
+| Rosa Suave       | #F8BBD0 |
+| Fondo Blanco     | #FFFFFF |
+| Fondo Secundario | #FFF0F5 |
+| Texto Oscuro     | #4A4A4A |
+
+---
+
+# 🌸 ESTILO VISUAL
+
+## Características UI
+
+* Bordes redondeados suaves.
+* Sombras ligeras.
+* Cards flotantes.
+* Espaciado elegante.
+* Animaciones delicadas.
+* Diseño minimalista femenino.
+
+---
+
+# 🌸 COMPONENTES GLOBALES
+
+Se crearán componentes reutilizables:
+
+| Componente    | Función             |
+| ------------- | ------------------- |
+| DivineButton  | Botones principales |
+| DivineInput   | Inputs premium      |
+| ProductCard   | Tarjetas producto   |
+| BeautyLoader  | Carga personalizada |
+| EmptyState    | Estados vacíos      |
+| SuccessDialog | Confirmaciones      |
+
+---
+
+# VII. FASE 3 — MODELADO PROFESIONAL DE TABLAS
+
+## Objetivo
+
+Transformar las tablas del sistema en entidades organizadas.
+
+---
+
+# 🌸 GRUPO CATÁLOGO
+
+---
+
+## Marca
+
+Representa fabricantes de maquillaje.
+
+### Campos:
+
+* idMarca
+* nombre
+* logo
+* descripcion
+* paisOrigen
+* estadoActivo
+* fechaRegistro
+
+---
+
+## Categoria
+
+Clasificación visual de productos.
+
+### Campos:
+
+* idCategoria
+* nombre
+* icono
+* descripcion
+* colorHex
+* estadoActivo
+
+---
+
+## Producto
+
+Entidad principal de venta.
+
+### Campos:
+
+* idProducto
+* nombre
+* descripcion
+* precio
+* stock
+* categoriaId
+* marcaId
+* rating
+* imagenPrincipal
+* galeriaImagenes
+* esDestacado
+* fechaRegistro
+
+---
+
+## Variante
+
+Variaciones de un producto.
+
+### Campos:
+
+* idVariante
+* productoId
+* nombreTono
+* colorHex
+* stock
+* sku
+* precioExtra
+
+---
+
+# 🌸 GRUPO CLIENTES
+
+---
+
+## Cliente
+
+Perfil del usuario.
+
+### Campos:
+
+* idCliente
+* nombre
+* correo
+* telefono
+* avatar
+* fechaNacimiento
+* favoritos
+* fechaRegistro
+
+---
+
+## Direccion
+
+Direcciones múltiples.
+
+### Campos:
+
+* idDireccion
+* clienteId
+* calle
+* numero
+* colonia
+* ciudad
+* estado
+* codigoPostal
+* referencias
+* principal
+
+---
+
+## Reseña
+
+Opiniones del cliente.
+
+### Campos:
+
+* idResena
+* productoId
+* clienteId
+* comentario
+* calificacion
+* fecha
+
+---
+
+# 🌸 GRUPO VENTAS
+
+---
+
+## Pedido
+
+Control general de compra.
+
+### Campos:
+
+* idPedido
+* clienteId
+* subtotal
+* descuento
+* total
+* estado
+* metodoPago
+* fechaPedido
+
+---
+
+## DetallePedido
+
+Productos individuales.
+
+### Campos:
+
+* idDetalle
+* pedidoId
+* productoId
+* varianteId
+* cantidad
+* precioUnitario
+
+---
+
+## Cupon
+
+Promociones y descuentos.
+
+### Campos:
+
+* idCupon
+* codigo
+* tipoDescuento
+* valor
+* fechaInicio
+* fechaFin
+* activo
+
+---
+
+# 🌸 GRUPO TRANSACCIONAL
+
+---
+
+## Pago
+
+Registro financiero.
+
+### Campos:
+
+* idPago
+* pedidoId
+* metodo
+* estado
+* referencia
+* fechaPago
+
+---
+
+## Factura
+
+Información fiscal.
+
+### Campos:
+
+* idFactura
+* pedidoId
+* rfc
+* razonSocial
+* usoCFDI
+* fechaFacturacion
+
+---
+
+# 🌸 GRUPO LOGÍSTICA
+
+---
+
+## Envio
+
+Seguimiento de entrega.
+
+### Campos:
+
+* idEnvio
+* pedidoId
+* paqueteria
+* numeroGuia
+* estadoEnvio
+* fechaSalida
+* fechaEntrega
+
+---
+
+## Proveedor
+
+Abastecimiento.
+
+### Campos:
+
+* idProveedor
+* nombre
+* telefono
+* correo
+* direccion
+* estadoActivo
+
+---
+
+## OrdenCompra
+
+Pedidos a proveedores.
+
+### Campos:
+
+* idOrdenCompra
+* proveedorId
+* total
+* estado
+* fechaOrden
+
+---
+
+## DetalleOrden
+
+Productos comprados al proveedor.
+
+### Campos:
+
+* idDetalleOrden
+* ordenCompraId
+* productoId
+* cantidad
+* costo
+
+---
+
+# VIII. FASE 4 — ESTRUCTURA FIRESTORE
+
+## Objetivo
+
+Diseñar una base de datos optimizada para ecommerce.
+
+---
+
+# 🌸 COLECCIONES PRINCIPALES
+
+```text id="ovgzr0"
+clientes/
+direcciones/
+productos/
+variantes/
+categorias/
+marcas/
+pedidos/
+detallePedidos/
+pagos/
+facturas/
+envios/
+cupones/
+resenas/
+proveedores/
+ordenesCompra/
+detalleOrdenes/
+```
+
+---
+
+# 🌸 ESTRUCTURA OPTIMIZADA
+
+## Estrategias
+
+* Documentos ligeros.
+* Relaciones desacopladas.
+* Consultas rápidas.
+* Índices optimizados.
+* Paginación desde inicio.
+
+---
+
+# IX. FASE 5 — AUTENTICACIÓN
+
+## Objetivo
+
+Crear acceso seguro y elegante.
+
+---
+
+# 🌸 LOGIN DISPONIBLE
+
+| Método              | Estado          |
+| ------------------- | --------------- |
+| Google Sign-In      | Sí              |
+| Correo y contraseña | Sí              |
+| Invitado            | Opcional futuro |
+
+---
+
+# 🌸 EXPERIENCIA VISUAL
+
+* Pantalla blanca minimalista.
+* Gradientes rosados.
+* Botones suaves.
+* Animaciones premium.
+
+---
+
+# X. FASE 6 — ORGANIZACIÓN PROFESIONAL DE CARPETAS
+
+# 🌸 ESTRUCTURA EMPRESARIAL
+
+```text id="gmcnvv"
+lib/
+
+├── main.dart
+│
+├── config/
+│   ├── firebase/
+│   ├── routes/
+│   └── theme/
+│
+├── core/
+│   ├── constants/
+│   ├── helpers/
+│   ├── utils/
+│   ├── errors/
+│   └── validators/
+│
+├── models/
+│   ├── catalog/
+│   ├── customer/
+│   ├── sales/
+│   ├── logistics/
+│   ├── payments/
+│   └── reviews/
+│
+├── controllers/
+│   ├── auth/
+│   ├── cart/
+│   ├── catalog/
+│   ├── checkout/
+│   ├── orders/
+│   └── profile/
+│
+├── services/
+│   ├── auth/
+│   ├── firestore/
+│   ├── storage/
+│   └── payments/
+│
+├── screens/
+│   ├── splash/
+│   ├── auth/
+│   ├── home/
+│   ├── catalog/
+│   ├── product/
+│   ├── cart/
+│   ├── checkout/
+│   ├── profile/
+│   └── orders/
+│
+├── widgets/
+│   ├── buttons/
+│   ├── cards/
+│   ├── dialogs/
+│   ├── inputs/
+│   ├── loaders/
+│   └── navigation/
+│
+└── assets/
+    ├── images/
+    ├── icons/
+    ├── fonts/
+    └── animations/
+```
+
+---
+
+# XI. FASE 7 — UI/UX Y EXPERIENCIA VISUAL
+
+## Objetivo
+
+Crear una experiencia premium comparable a apps boutique modernas.
+
+---
+
+# 🌸 HOME SCREEN
+
+## Contenido
+
+* Hero banners dinámicos.
+* Categorías visuales.
+* Productos destacados.
+* Productos nuevos.
+* Favoritos rápidos.
+
+---
+
+# 🌸 PRODUCT DETAIL
+
+## Contendrá
+
+* Galería fullscreen.
+* Selector de tonos.
+* Reviews.
+* Productos relacionados.
+* Quick Add elegante.
+
+---
+
+# 🌸 CARRITO
+
+## Funciones
+
+* Editar cantidades.
+* Eliminar productos.
+* Aplicar cupones.
+* Calcular envío.
+* Resumen premium.
+
+---
+
+# XII. FASE 8 — CHECKOUT MULTIPLATAFORMA
+
+## Objetivo
+
+Garantizar compras rápidas y seguras.
+
+---
+
+# 🌸 MÉTODOS DE PAGO
+
+| Método  | Estado     |
+| ------- | ---------- |
+| Tarjeta | Principal  |
+| PayPal  | Secundario |
+| Oxxo    | Opcional   |
+
+---
+
+# 🌸 FLUJO
+
+```text id="0y6moj"
+Carrito
+   ↓
+Dirección
+   ↓
+Pago
+   ↓
+Confirmación
+   ↓
+Pedido
+```
+
+---
+
+# XIII. FASE 9 — OPTIMIZACIÓN Y ESCALABILIDAD
+
+## Estrategias
+
+### Firestore
+
+* Índices compuestos.
+* Consultas limitadas.
+* Caché local.
+* Lazy loading.
+
+---
+
+### Flutter
+
+* Widgets reutilizables.
+* Separación modular.
+* Controllers desacoplados.
+* Imágenes optimizadas.
+
+---
+
+# XIV. FASE 10 — ROADMAP FUTURO
+
+## Preparado para:
+
+* Panel administrativo.
+* Dashboard ventas.
+* Sistema multi-sucursal.
+* IA de recomendaciones.
+* Wishlist avanzada.
+* Notificaciones push.
+* Programa de recompensas.
+* Marketplace.
+
+---
+
+# XV. RESULTADO FINAL
+
+## Divine Beauty quedará preparada como:
+
+✅ Ecommerce profesional
+✅ Arquitectura empresarial
+✅ Código limpio y modular
+✅ Firebase optimizado
+✅ Firestore escalable
+✅ Sin dependencias innecesarias
+✅ UI boutique premium
+✅ Base lista para crecimiento real empresarial 🌸
 
 ###PROMPT 
 
